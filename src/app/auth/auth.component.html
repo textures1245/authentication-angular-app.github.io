@@ -1,0 +1,49 @@
+<app-alert  [alertStatus]="'danger'" [errorObj]="errorObj"></app-alert>
+
+<form (ngSubmit)="onSubmit(authForm)" #authForm="ngForm">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input
+      ngModel
+      #email="ngModel"
+      name="email"
+      type="email"
+      class="form-control"
+      id="email"
+      required
+    />
+    <div *ngIf="!email.valid && email.touched" id="emailHelp" class="form-text">
+      This field isn't valid.
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input
+      ngModel
+      #password="ngModel"
+      name="password"
+      type="password"
+      class="form-control"
+      id="password"
+      required
+    />
+    <div
+      *ngIf="!password.valid && password.touched"
+      id="passwodHelp"
+      class="form-text"
+    >
+      This field isn't valid.
+    </div>
+  </div>
+  <button
+    [disabled]="authForm.invalid"
+    type="submit"
+    class="btn btn-primary btn-sm"
+  >
+    {{ isLoggedInMode ? "Login" : "Sign up" }}
+  </button>
+  |
+  <button type="button" class="btn btn-primary btn-sm" (click)="onSwitchMode()">
+    Switch to {{ !isLoggedInMode ? "Login" : "Sign up" }} Mode
+  </button>
+</form>

@@ -1,0 +1,20 @@
+<table class="table fw-light">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Identifier</th>
+      <th scope="col">Expiration Date</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let user of users; let i = index">
+    <tr>
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ user.email }}</td>
+      <td>{{ user._tokenExpirationDate | date: "mediumDate" }}</td>
+      <td [ngClass]="user.status ? 'text-success' : 'text-danger'">
+        {{ user.status ? "Online" : "Offline" }}
+      </td>
+    </tr>
+  </tbody>
+</table>

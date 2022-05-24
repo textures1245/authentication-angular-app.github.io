@@ -1,0 +1,54 @@
+<div *ngIf="isAuth" style="z-index: 1; left: 14%;" class="me-4 position-absolute">
+  <button type="button" class="btn" alt="filter" (click)="onShowOption()">
+    =
+  </button>
+  <div
+    *ngIf="isShowOption"
+    class="border border-1 position-absolute box-filter bg-light"
+  >
+    <p>Option</p>
+    <hr />
+    <div class="position-relative mt-4">
+      <div class="d-inline">
+        <button type="button" class="btn btn-secondary btn-sm mb-1" (click)="onLogout()">Logout</button>
+        <br>
+        <button
+          type="button"
+          (click)="onSaveData()"
+          class="btn btn-success btn-sm mb-1"
+        >
+          Save Data
+        </button>
+        <button
+          type="button"
+          (click)="onFetchData()"
+          class="btn btn-primary btn-sm"
+        >
+          Fetch Data
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <ul class="nav nav-tabs card-header-tabs">
+      <li class="nav-item col-md-2">
+        <a class="nav-link pointer" routerLink="home" routerLinkActive="active"
+          >Overview</a
+        >
+      </li>
+      <li *ngIf="isAuth" class="nav-item col-md-10">
+        <a class="nav-link pointer" routerLink="users" routerLinkActive="active"
+          >Users</a
+        >
+      </li>
+      <li *ngIf="!isAuth" class="nav-item col-md-10">
+        <a class="nav-link pointer" routerLink="auth" routerLinkActive="active"
+          >Authenticate</a
+        >
+      </li>
+    </ul>
+  </div>
+</div>

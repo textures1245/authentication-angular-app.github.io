@@ -1,0 +1,60 @@
+<app-alert
+  *ngIf="successAuth"
+  [alertStatus]="'success'"
+  [successMessageTopic]="'Login successfully!'"
+  [successMessage]="[
+    'Welcome to Authenticated App!',
+    'You can now visited our Users page. (fetch users to see the user list)'
+  ]"
+></app-alert>
+
+<div class="container">
+  <h4 class="fw-lighter">Authentication App</h4>
+  <p class="text-muted">
+    Project test for authenticated users with Firebase backend API.
+  </p>
+  <p class="text-muted">
+    The app was authenticated by email and password and also communicated with
+    token that generate from Firebase authenticate API.
+  </p>
+  <hr />
+  <h4 class="fw-lighter">What this app can do?</h4>
+  <ul>
+    <li>
+      <span class="text-muted">Sign up new users.</span>
+    </li>
+    <li>
+      <span class="text-muted">Logged in user from database.</span>
+    </li>
+    <li>
+      <span class="text-muted">List how many users have been sign up.</span>
+    </li>
+    <li>
+      <span class="text-muted"
+        >Shows the online user's status in real-time.</span
+      >
+    </li>
+    <li>
+      <span class="text-muted"
+        >Shows date when they had created their accounts.</span
+      >
+    </li>
+    <li>
+      <span class="text-muted"
+        >Shows alert error messages on user-interface</span
+      >
+    </li>
+    <li>
+      <span class="text-muted"
+        >Auto login/logout by checking expired date account.</span
+      >
+    </li>
+  </ul>
+  <hr />
+  <small class="fw-light">@Copyright 2022 - texture1245</small><br />
+  <small>
+    <a href="https://github.com/textures1245" class="fw-light"
+      >https://github.com/textures1245</a
+    >
+  </small>
+</div>

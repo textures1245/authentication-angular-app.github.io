@@ -1,0 +1,56 @@
+<div
+  *ngIf="alertStatus === 'danger' && errorObj.message !== null"
+  class="backdrop"
+>
+  <div class="alert-box">
+    <div class="alert alert-danger">
+      <div class="container">
+        <button style="float: right" class="btn" (click)="alertStatus = ''">
+          X
+        </button>
+        <h4 class="fw-light">
+          Error Status {{ errorObj.status }} |
+          {{ errorObj.messageHeader ? errorObj.messageHeader : errorObj.name }}
+        </h4>
+        <hr />
+        <p>{{ errorObj.message }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="alertStatus === 'warning' && errorObj.message !== null"
+  class="backdrop"
+>
+  <div class="alert-box">
+    <div class="alert alert-warning">
+      <div class="container">
+        <button style="float: right" class="btn" (click)="alertStatus = ''">
+          X
+        </button>
+        <h4 class="fw-light">
+          Error Status {{ errorObj.status }} |
+          {{ errorObj.messageHeader ? errorObj.messageHeader : errorObj.name }}
+        </h4>
+        <hr />
+        <p>{{ errorObj.message }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="alertStatus === 'success' && successMessageTopic.length" class="alert alert-success">
+  <div class="container">
+    <button style="float: right" class="btn" (click)="alertStatus = ''; successMessageTopic = ''; successMessage = [];">
+      X
+    </button>
+        <h5 class="fw-light">
+            {{ successMessageTopic }}
+        </h5>
+        <hr>
+        <div *ngFor="let p of successMessage">
+            <p class="text-muted">{{p}}</p>
+        </div>
+  </div>
+</div>
